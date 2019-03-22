@@ -1,0 +1,29 @@
+{
+  "atom": {
+    "rewriteTsconfig": false
+  },
+  "buildOnSave": false,
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": ["es2015", "dom"],
+    "module": "commonjs",
+    "noUnusedLocals": true,
+    "outDir": ".tmp",
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "target": "es5",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ]
+  },
+  "exclude": [
+    "bower_components",
+    "node_modules"
+  ]
+}
