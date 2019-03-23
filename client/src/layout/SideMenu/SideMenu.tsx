@@ -20,7 +20,7 @@ export default class SideMenu extends React.Component {
     return (
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
         <Menu.Item key="1">
-          <Link to={routerOutline.HelloPage}>
+          <Link to={'/'}>
             <Icon type="pie-chart" />
             <span>首页</span>
           </Link>
