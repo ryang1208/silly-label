@@ -1,6 +1,5 @@
-# idea
-.idea
-
-# vscode
-
-# mac
+.idea/
+.vscode/
+client/node_modules/
+client/yarn-error.log
+client/yarn.lock
