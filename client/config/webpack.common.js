@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+const themeConfig = require('../theme.config')
+
 module.exports = {
   entry: {
     app: ['./src/index.tsx']
@@ -31,8 +33,14 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
+        // exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', {
+          loader: 'less-loader',
+          options: {
+            modifyVars: themeConfig,
+            javascriptEnabled: true
+          }
+        }]
       },
       {
         test: /\.css$/,
