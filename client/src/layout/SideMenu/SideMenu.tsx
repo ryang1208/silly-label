@@ -3,16 +3,10 @@
 import * as React from 'react'
 import { Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
-import { routerOutline } from '../../router/router'
 
 const SubMenu = Menu.SubMenu
 
 export default class SideMenu extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-
   renderDatasetMenu() {
     return (
       <SubMenu
@@ -20,7 +14,7 @@ export default class SideMenu extends React.Component {
         title={
           <span>
             <Icon type="rocket" theme="filled" />
-            <span>数据集3</span>
+            <span>数据集</span>
           </span>
         }
       >
@@ -33,6 +27,7 @@ export default class SideMenu extends React.Component {
       </SubMenu>
     )
   }
+
   renderTaskMenu() {
     return (
       <Menu.Item key="task">
@@ -43,6 +38,7 @@ export default class SideMenu extends React.Component {
       </Menu.Item>
     )
   }
+
   renderSettingMenu() {
     return (
       <Menu.Item key="setting">
@@ -53,6 +49,7 @@ export default class SideMenu extends React.Component {
       </Menu.Item>
     )
   }
+
   render() {
     return (
       <Menu
