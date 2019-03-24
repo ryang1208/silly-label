@@ -17,4 +17,4 @@
 *.ipr
 
 ### VS Code ###
-.vscode
+.vscode/
