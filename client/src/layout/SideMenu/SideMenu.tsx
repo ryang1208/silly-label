@@ -7,37 +7,69 @@ import { routerOutline } from '../../router/router'
 
 const SubMenu = Menu.SubMenu
 
-/**
- * 此文件配置项目作业菜单栏
- */
 export default class SideMenu extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
   }
 
+  renderDatasetMenu() {
+    return (
+      <SubMenu
+        key="dataset"
+        title={
+          <span>
+            <Icon type="rocket" theme="filled" />
+            <span>数据集3</span>
+          </span>
+        }
+      >
+        <Menu.Item key="dataset-create">
+          <Link to={'/'}>创建数据集</Link>
+        </Menu.Item>
+        <Menu.Item key="dataset-list">
+          <Link to={'/'}>数据集列表</Link>
+        </Menu.Item>
+      </SubMenu>
+    )
+  }
+  renderTaskMenu() {
+    return (
+      <Menu.Item key="task">
+        <Link to={'/'}>
+          <Icon type="align-left" />
+          <span>任务</span>
+        </Link>
+      </Menu.Item>
+    )
+  }
+  renderSettingMenu() {
+    return (
+      <Menu.Item key="setting">
+        <Link to={'/'}>
+          <Icon type="setting" />
+          <span>个人中心</span>
+        </Link>
+      </Menu.Item>
+    )
+  }
   render() {
     return (
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item key="1">
+      <Menu
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={['dashboard']}
+        defaultOpenKeys={['dataset']}
+      >
+        <Menu.Item key="dashboard">
           <Link to={'/'}>
             <Icon type="pie-chart" />
-            <span>首页</span>
+            <span>dashboard</span>
           </Link>
         </Menu.Item>
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <Icon type="rocket" theme="filled" />
-              <span>子菜单</span>
-            </span>
-          }
-        >
-          <Menu.Item key="2">
-            <Link to={routerOutline.HelloPage}>HelloPage</Link>
-          </Menu.Item>
-        </SubMenu>
+        {this.renderDatasetMenu()}
+        {this.renderTaskMenu()}
+        {this.renderSettingMenu()}
       </Menu>
     )
   }
