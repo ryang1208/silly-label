@@ -1,4 +1,4 @@
-package com.silly.label;
+package com.label;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
