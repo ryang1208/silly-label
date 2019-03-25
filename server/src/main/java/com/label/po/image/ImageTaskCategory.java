@@ -13,6 +13,8 @@ public class ImageTaskCategory {
     @Id
     @GeneratedValue
     private Integer id;
-
+    /**
+     * 分类种类名字
+     */
     private String categoryName;
 }

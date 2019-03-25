@@ -13,8 +13,12 @@ public class UserRole {
     @Id
     @GeneratedValue
     private Integer id;
-
+    /**
+     * 用户id
+     */
     private Integer userId;
-
+    /**
+     * 权限id
+     */
     private Integer roleId;
 }

@@ -13,12 +13,20 @@ public class ImageLabelStatus {
     @Id
     @GeneratedValue
     private Integer id;
-
+    /**
+     * 用户Id
+     */
     private Integer userId;
-
+    /**
+     * 需求id
+     */
     private Integer requirementId;
-
+    /**
+     * 是否完成
+     */
     private Boolean finish;
-
+    /**
+     * 当前完成的标签
+     */
     private Integer currentLabel;
 }

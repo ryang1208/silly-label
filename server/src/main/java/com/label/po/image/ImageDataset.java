@@ -13,13 +13,21 @@ public class ImageDataset {
     @Id
     @GeneratedValue
     private Integer id;
-
+    /**
+     * 用户id
+     */
     private Integer userId;
-
+    /**
+     * 上传时间
+     */
     private Date uploadTime;
-
+    /**
+     * 上传数量
+     */
     private Integer uploadCount;
-
+    /**
+     * 描述
+     */
     private String description;
 
 }
