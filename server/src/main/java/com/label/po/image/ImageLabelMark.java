@@ -13,6 +13,10 @@ public class ImageLabelMark {
     @GeneratedValue
     private Integer id;
     /**
+     * 用户id
+     */
+    private Integer userId;
+    /**
      * 数据集id
      */
     private Integer datasetId;
