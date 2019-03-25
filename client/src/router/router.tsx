@@ -1,5 +1,3 @@
-'use strict'
-
 import * as React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { withSubscription } from 'enhancer/withSubscription'

@@ -1,5 +1,3 @@
-'use strict'
-
 import * as React from 'react'
 
 // 权限说明

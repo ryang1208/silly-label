@@ -1,5 +1,3 @@
-'use strict'
-
 import { observable, action, computed } from 'mobx'
 import { message } from 'antd'
 // import { routerOutline } from '../router'

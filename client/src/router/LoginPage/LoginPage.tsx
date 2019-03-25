@@ -1,10 +1,8 @@
-'use strict'
-
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Icon, Input, Button, Row, Col } from 'antd'
+import { IPageProps } from 'declare/CommonInterface'
 import { LoginPageModel } from './LoginPageModel'
-import { IPageProps } from '../../declare/CommonInterface'
 
 interface ILoginPageInterface extends IPageProps {
   loginPageModel: LoginPageModel

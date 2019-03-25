@@ -1,4 +1,3 @@
-'use strict'
 import loginPageModel from '../router/LoginPage/LoginPageModel'
 
 const rootStore = {
