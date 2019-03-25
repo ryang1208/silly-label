@@ -1,5 +1,7 @@
 package com.label.controller;
 
+import com.label.annoation.CurrentUser;
+import com.label.po.user.UserInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +12,8 @@ public class DemoController {
 
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
-    public String hello(){
-          return "hello world";
+    public String hello(@CurrentUser UserInfo userInfo){
+
+        return userInfo.getUsername();
     }
 }
