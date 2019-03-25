@@ -4,13 +4,13 @@ import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Icon, Input, Button, Row, Col } from 'antd'
 import { LoginPageModel } from './LoginPageModel'
-import PageProps from '../../utils/PageProps'
+import { IPageProps } from '../../declare/CommonInterface'
 
-import './LoginPage.less'
-
-class ILoginPageInterface extends PageProps {
+interface ILoginPageInterface extends IPageProps {
   loginPageModel: LoginPageModel
 }
+
+import './LoginPage.less'
 
 @inject('loginPageModel')
 @observer
