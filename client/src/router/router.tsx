@@ -1,24 +1,24 @@
-'use strict'
-
 import * as React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { withSubscription } from 'enhancer/withSubscription'
-
 import BasicLayout from 'layout/BasicLayout/BasicLayout'
 
 import HelloPage from './HelloPage/HelloPage'
+import LoginPage from './LoginPage/LoginPage'
 
-const routerPrefix = ''
+const routerPrefix = '/label'
 
 export const routerOutline = {
+  LoginPage: `${routerPrefix}/login`,
   HelloPage: `${routerPrefix}/hello`
 }
 
 const router = (
   <BrowserRouter>
     <div>
+      <Route strict path={routerOutline.LoginPage} component={LoginPage} />
       <Route
-        path={`${routerPrefix}`}
+        path={`${routerPrefix}/panel`}
         component={withSubscription(
           BasicLayout,
           <React.Fragment>

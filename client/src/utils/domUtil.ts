@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * 添加外部 css 文件
  * @param url
