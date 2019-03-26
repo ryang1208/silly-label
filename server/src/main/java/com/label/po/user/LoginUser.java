@@ -4,6 +4,11 @@ import lombok.Data;
 
 @Data
 public class LoginUser {
+
+    /**
+     * 用户id
+     */
+    private Integer userId;
     /**
      * 用户名
      */

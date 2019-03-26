@@ -49,6 +49,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         }
 
         LoginUser loginUser = new LoginUser();
+        loginUser.setUserId(userId);
         loginUser.setUsername(userInfo.getUsername());
         loginUser.setPassword(userInfo.getPassword());
         loginUser.setState(cookie.getValue());
