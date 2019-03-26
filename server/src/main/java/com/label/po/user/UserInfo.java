@@ -22,4 +22,5 @@ public class UserInfo {
      * 密码
      */
     private String password;
+
 }

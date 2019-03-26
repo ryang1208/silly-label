@@ -1,6 +1,7 @@
 package com.label.service;
 
 import com.label.exception.BusinessException;
+import com.label.po.user.LoginUser;
 import com.label.po.user.UserInfo;
 import com.label.vo.UserInfoVO;
 
@@ -20,5 +21,16 @@ public interface UserService {
      */
     public void register(UserInfo userInfo) throws BusinessException;
 
+    /**
+     * 重置密码
+     * @param userInfoVO
+     * @throws BusinessException
+     */
     public void resetPassword(UserInfoVO userInfoVO) throws BusinessException;
+
+    /**
+     * 登出功能
+     * @param response
+     */
+    public void logout(HttpServletResponse response, LoginUser loginUser);
 }

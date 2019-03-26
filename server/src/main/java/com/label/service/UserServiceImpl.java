@@ -5,6 +5,7 @@ import com.label.dao.user.LoginStatusRepository;
 import com.label.dao.user.UserInfoRepository;
 import com.label.exception.BusinessException;
 import com.label.po.user.LoginStatus;
+import com.label.po.user.LoginUser;
 import com.label.po.user.UserInfo;
 import com.label.utils.CookieUtils;
 import com.label.utils.DateUtils;
@@ -13,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -81,5 +82,18 @@ public class UserServiceImpl implements UserService {
 
         throw new BusinessException("用户名或密码错误");
 
+    }
+
+    @Override
+    public void logout(HttpServletResponse response, LoginUser loginUser) {
+            //从内存中删除
+          Map<String,Integer> cookieMaps = cacheService.getCookieMaps();
+          cookieMaps.remove(loginUser.getState());
+
+          //更新数据库
+         loginStatusRepository.updateByState(loginUser.getState());
+
+         //在返回头里返回
+        CookieUtils.set(response,CookieConstant.TOKEN,null,0);
     }
 }

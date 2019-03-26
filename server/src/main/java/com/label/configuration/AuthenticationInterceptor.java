@@ -2,6 +2,7 @@ package com.label.configuration;
 
 import com.label.constant.CookieConstant;
 import com.label.dao.user.UserInfoRepository;
+import com.label.po.user.LoginUser;
 import com.label.po.user.UserInfo;
 import com.label.service.CacheService;
 import com.label.utils.CookieUtils;
@@ -9,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +30,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         Cookie cookie = CookieUtils.get(request, CookieConstant.TOKEN);
 
         if (cookie == null) {
+            //response.setStatus(405);
             logger.info("用户未登录");
             return false;
         }
@@ -43,7 +44,16 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
         UserInfo userInfo = userInfoRepository.findById(userId).orElse(null);
 
-        request.setAttribute("currentUser", userInfo);
+        if(userInfo == null){
+            return false;
+        }
+
+        LoginUser loginUser = new LoginUser();
+        loginUser.setUsername(userInfo.getUsername());
+        loginUser.setPassword(userInfo.getPassword());
+        loginUser.setState(cookie.getValue());
+
+        request.setAttribute("currentUser", loginUser);
 
         return true;
     }

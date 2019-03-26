@@ -1,6 +1,7 @@
 package com.label.configuration;
 
 import com.label.annoation.CurrentUser;
+import com.label.po.user.LoginUser;
 import com.label.po.user.UserInfo;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -16,13 +17,13 @@ import org.springframework.web.multipart.support.MissingServletRequestPartExcept
 public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.getParameterType().isAssignableFrom(UserInfo.class)
+        return parameter.getParameterType().isAssignableFrom(LoginUser.class)
                 && parameter.hasParameterAnnotation(CurrentUser.class);
     }
 
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-        UserInfo user = (UserInfo) webRequest.getAttribute("currentUser", RequestAttributes.SCOPE_REQUEST);
+        LoginUser user = (LoginUser) webRequest.getAttribute("currentUser", RequestAttributes.SCOPE_REQUEST);
         if (user != null) {
             return user;
         }
