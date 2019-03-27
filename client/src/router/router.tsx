@@ -4,11 +4,8 @@ import { withSubscription } from 'enhancer/withSubscription'
 import BasicLayout from 'layout/BasicLayout/BasicLayout'
 import loadable from '@loadable/component'
 
-const HelloPage = loadable(() => import('./HelloPage/HelloPage'))
 const LoginPage = loadable(() => import('./LoginPage/LoginPage'))
-
-// import HelloPage from './HelloPage/HelloPage'
-// import LoginPage from './LoginPage/LoginPage'
+const HelloPage = loadable(() => import('./HelloPage/HelloPage'))
 
 const routerPrefix = '/label'
 
@@ -20,7 +17,7 @@ export const routerOutline = {
 const router = (
   <BrowserRouter>
     <div>
-      <Route strict path={routerOutline.LoginPage} component={LoginPage} />
+      <Route strict path={routerOutline.LoginPage} component={LoginPage}/>
       <Route
         path={`${routerPrefix}/panel`}
         component={withSubscription(
