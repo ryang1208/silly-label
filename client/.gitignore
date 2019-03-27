@@ -1,4 +1,6 @@
+config/webpack.local.js
 node_modules/
+dist
 *.log
 
 ### IntelliJ IDEA ###

@@ -2,9 +2,13 @@ import * as React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { withSubscription } from 'enhancer/withSubscription'
 import BasicLayout from 'layout/BasicLayout/BasicLayout'
+import loadable from '@loadable/component'
 
-import HelloPage from './HelloPage/HelloPage'
-import LoginPage from './LoginPage/LoginPage'
+const HelloPage = loadable(() => import('./HelloPage/HelloPage'))
+const LoginPage = loadable(() => import('./LoginPage/LoginPage'))
+
+// import HelloPage from './HelloPage/HelloPage'
+// import LoginPage from './LoginPage/LoginPage'
 
 const routerPrefix = '/label'
 

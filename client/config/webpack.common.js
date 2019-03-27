@@ -19,6 +19,13 @@ module.exports = {
     chunkFilename: '[id].chunk_[chunkhash].js',
     publicPath: '/'
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: true
+    },
+    runtimeChunk: false
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     plugins: [
