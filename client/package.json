@@ -7,11 +7,17 @@
   "license": "ISC",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js",
-    "lint": "yarn prettier && yarn tslint",
+    "prod": "./node_modules/.bin/webpack --config ./config/webpack.prod.js",
     "prettier": "prettier -l --write 'src/**/*.{ts,tsx,less,css}' --no-semi --single-quote",
     "prettier-check": "prettier -l 'src/**/*.{ts,tsx,less,css}' --no-semi --single-quote",
-    "prod": "./node_modules/.bin/webpack --config ./config/webpack.prod.js",
-    "tslint": "tslint \"./src/**/*.{ts,tsx}\" && ../hack/scripts/check-tsc.sh"
+    "tslint": "tslint \"./src/**/*.{ts,tsx}\" && ../hack/scripts/check-tsc.sh",
+    "lint": "yarn prettier && yarn tslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn lint"
+    }
   },
   "dependencies": {
     "antd": "^3.13.6",
@@ -49,6 +55,7 @@
     "file-loader": "^1.1.11",
     "fork-ts-checker-webpack-plugin": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "postcss-loader": "^3.0.0",
