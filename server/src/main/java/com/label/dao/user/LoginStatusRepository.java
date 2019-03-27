@@ -21,6 +21,6 @@ public interface LoginStatusRepository extends CrudRepository<LoginStatus,Intege
 
     @Modifying
     @Transactional(propagation = Propagation.REQUIRED)
-    @Query(value = "update login_status set del = 1 where state = :state",nativeQuery = true)
-    public void updateByState(@Param("state") String state);
+    @Query(value = "update login_status set expired_time = :date where state = :state",nativeQuery = true)
+    public void updateExpiredByState(@Param("state") String state,@Param("date")Date date);
 }

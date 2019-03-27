@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 
@@ -91,7 +92,7 @@ public class UserServiceImpl implements UserService {
           cookieMaps.remove(loginUser.getState());
 
           //更新数据库
-         loginStatusRepository.updateByState(loginUser.getState());
+         loginStatusRepository.updateExpiredByState(loginUser.getState(),new Date());
 
          //在返回头里返回
         CookieUtils.set(response,CookieConstant.TOKEN,null,0);

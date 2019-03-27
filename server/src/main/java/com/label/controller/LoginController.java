@@ -66,7 +66,6 @@ public class LoginController {
 
         userService.logout(response,loginUser);
         return WebUtils.success();
-
     }
 
 

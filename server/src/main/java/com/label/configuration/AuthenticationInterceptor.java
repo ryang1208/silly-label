@@ -26,7 +26,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-
+        //todo:用户登录失败的返回
         Cookie cookie = CookieUtils.get(request, CookieConstant.TOKEN);
 
         if (cookie == null) {
