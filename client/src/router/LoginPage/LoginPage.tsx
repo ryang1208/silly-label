@@ -44,15 +44,13 @@ export default class LoginPage extends React.Component<
                     htmlType="button"
                     type="primary"
                     className="login-form-button"
-                    onClick={() => loginPageModel.login(history)}
-                  >
+                    onClick={() => loginPageModel.login(history)}>
                     登录
                   </Button>
                   &nbsp;&nbsp;Or{' '}
                   <span
                     className="switch"
-                    onClick={() => loginPageModel.switchRegister()}
-                  >
+                    onClick={() => loginPageModel.switchRegister()}>
                     注册账号
                   </span>
                 </div>
@@ -95,15 +93,13 @@ export default class LoginPage extends React.Component<
                     htmlType="button"
                     type="primary"
                     className="register-form-button"
-                    onClick={() => loginPageModel.register(history)}
-                  >
+                    onClick={() => loginPageModel.register(history)}>
                     注册
                   </Button>
                   &nbsp;&nbsp;Or{' '}
                   <span
                     className="switch"
-                    onClick={() => loginPageModel.switchLogin()}
-                  >
+                    onClick={() => loginPageModel.switchLogin()}>
                     直接登录
                   </span>
                 </div>

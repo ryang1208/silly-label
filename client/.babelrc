@@ -7,14 +7,6 @@
     "syntax-dynamic-import",
     "transform-class-properties",
     "transform-decorators-legacy",
-    "transform-object-rest-spread",
-    [
-      "import",
-      {
-        "libraryDirectory": "es",
-        "libraryName": "antd",
-        "style": "css"
-      }
-    ]
+    "transform-object-rest-spread"
   ]
 }

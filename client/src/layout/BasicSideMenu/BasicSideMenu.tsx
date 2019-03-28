@@ -14,8 +14,7 @@ export default class BasicSideMenu extends React.Component {
             <Icon type="rocket" theme="filled" />
             <span>数据集</span>
           </span>
-        }
-      >
+        }>
         <Menu.Item key="dataset-create">
           <Link to={'/'}>创建数据集</Link>
         </Menu.Item>
@@ -54,8 +53,7 @@ export default class BasicSideMenu extends React.Component {
         theme="dark"
         mode="inline"
         defaultSelectedKeys={['dashboard']}
-        defaultOpenKeys={['dataset']}
-      >
+        defaultOpenKeys={['dataset']}>
         <Menu.Item key="dashboard">
           <Link to={'/'}>
             <Icon type="pie-chart" />

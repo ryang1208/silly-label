@@ -30,8 +30,7 @@ export default class BasicLayout extends React.Component<
         <Sider
           collapsible
           collapsed={this.state.collapsed}
-          onCollapse={() => this.onCollapse()}
-        >
+          onCollapse={() => this.onCollapse()}>
           <BasicSideMenu />
         </Sider>
         <Layout>
