@@ -18,7 +18,7 @@ module.exports = merge(common, {
       '/api/*': {
         target: 'http://localhost:7001',
         secure: false,
-        bypass: function(req, res, proxyOptions) {
+        bypass: function (req, res, proxyOptions) {
           if (req.headers.accept && req.headers.accept.indexOf('html') !== -1) {
             console.log('Skipping proxy for browser request.')
             return '/index.html'

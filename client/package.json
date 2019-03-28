@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js",
     "prod": "./node_modules/.bin/webpack --config ./config/webpack.prod.js",
+    "analyze": "./node_modules/.bin/webpack --config ./config/webpack.analyze.js",
     "prettier": "prettier -l --write 'src/**/*.{ts,tsx,less,css}'",
     "prettier-check": "prettier -l 'src/**/*.{ts,tsx,less,css}'",
     "tslint": "tslint \"./src/**/*.{ts,tsx}\" && ../hack/scripts/check-tsc.sh",
@@ -70,6 +71,7 @@
     "typescript": "^3.2.4",
     "url-loader": "^1.0.1",
     "webpack": "^4.1.0",
+    "webpack-bundle-analyzer": "^3.1.0",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1"

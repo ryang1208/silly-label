@@ -35,9 +35,7 @@ export default class BasicLayout extends React.Component<
         </Sider>
         <Layout>
           <BasicHeader />
-          <Content style={{ margin: '0.2rem', background: '#fff' }}>
-            {this.props.children}
-          </Content>
+          <Content>{this.props.children}</Content>
         </Layout>
       </Layout>
     )
