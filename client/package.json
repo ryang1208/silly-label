@@ -8,8 +8,8 @@
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js",
     "prod": "./node_modules/.bin/webpack --config ./config/webpack.prod.js",
-    "prettier": "prettier -l --write 'src/**/*.{ts,tsx,less,css}' --no-semi --single-quote",
-    "prettier-check": "prettier -l 'src/**/*.{ts,tsx,less,css}' --no-semi --single-quote",
+    "prettier": "prettier -l --write 'src/**/*.{ts,tsx,less,css}'",
+    "prettier-check": "prettier -l 'src/**/*.{ts,tsx,less,css}'",
     "tslint": "tslint \"./src/**/*.{ts,tsx}\" && ../hack/scripts/check-tsc.sh",
     "lint": "yarn prettier && yarn tslint"
   },
