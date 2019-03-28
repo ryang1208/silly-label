@@ -7,7 +7,10 @@ import BasicHeader from '../BasicHeader/BasicHeader'
 
 const { Content, Sider } = Layout
 
-export default class BasicLayout extends React.Component<any, IBasicLayoutState> {
+export default class BasicLayout extends React.Component<
+  any,
+  IBasicLayoutState
+> {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,10 +32,10 @@ export default class BasicLayout extends React.Component<any, IBasicLayoutState>
           collapsed={this.state.collapsed}
           onCollapse={() => this.onCollapse()}
         >
-          <BasicSideMenu/>
+          <BasicSideMenu />
         </Sider>
         <Layout>
-          <BasicHeader/>
+          <BasicHeader />
           <Content style={{ margin: '0.2rem', background: '#fff' }}>
             {this.props.children}
           </Content>
