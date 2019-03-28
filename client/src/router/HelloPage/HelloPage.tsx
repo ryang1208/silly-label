@@ -1,15 +1,14 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
+
 import { HelloPageModel } from './HelloPageModel'
 
 @inject('helloPageModel')
 @observer
-export default class HelloPage extends React.Component<
-  {
-    helloPageModel: HelloPageModel
-  },
-  {}
-> {
+export default class HelloPage extends React.Component<{
+  helloPageModel: HelloPageModel
+},
+  {}> {
   render() {
     return (
       <div className="hello-container">

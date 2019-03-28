@@ -1,21 +1,13 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Icon, Input, Button, Row, Col } from 'antd'
-import { IPageProps } from 'declare/CommonInterface'
-import { LoginPageModel } from './LoginPageModel'
-
-interface ILoginPageInterface extends IPageProps {
-  loginPageModel: LoginPageModel
-}
+import { ILoginPageInterfaceProps } from 'declare/page/LoginPageInterface'
 
 import './LoginPage.less'
 
 @inject('loginPageModel')
 @observer
-export default class LoginPage extends React.Component<
-  ILoginPageInterface,
-  any
-> {
+export default class LoginPage extends React.Component<ILoginPageInterfaceProps, any> {
   render() {
     const { loginPageModel, history } = this.props
 
@@ -27,7 +19,7 @@ export default class LoginPage extends React.Component<
               <div className="login-content">
                 <Input
                   className="split"
-                  prefix={<Icon type="user" />}
+                  prefix={<Icon type="user"/>}
                   placeholder="用户名"
                   value={loginPageModel.loginUsername}
                   onChange={e =>
@@ -36,7 +28,7 @@ export default class LoginPage extends React.Component<
                 />
                 <Input
                   className="split"
-                  prefix={<Icon type="lock" />}
+                  prefix={<Icon type="lock"/>}
                   placeholder="密码"
                   value={loginPageModel.loginPassword}
                   type="password"
@@ -68,7 +60,7 @@ export default class LoginPage extends React.Component<
               <div className="register-content">
                 <Input
                   className="split"
-                  prefix={<Icon type="user" />}
+                  prefix={<Icon type="user"/>}
                   placeholder="用户名"
                   value={loginPageModel.registerUsername}
                   onChange={e =>
@@ -77,7 +69,7 @@ export default class LoginPage extends React.Component<
                 />
                 <Input
                   className="split"
-                  prefix={<Icon type="lock" />}
+                  prefix={<Icon type="lock"/>}
                   placeholder="密码"
                   type="password"
                   value={loginPageModel.registerPassword}
@@ -87,7 +79,7 @@ export default class LoginPage extends React.Component<
                 />
                 <Input
                   className="split"
-                  prefix={<Icon type="lock" />}
+                  prefix={<Icon type="lock"/>}
                   placeholder="确认密码"
                   type="password"
                   value={loginPageModel.registerPasswordConfirm}

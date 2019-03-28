@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 
 const SubMenu = Menu.SubMenu
 
-export default class SideMenu extends React.Component {
+export default class BasicSideMenu extends React.Component {
   renderDatasetMenu() {
     return (
       <SubMenu
         key="dataset"
         title={
           <span>
-            <Icon type="rocket" theme="filled" />
+            <Icon type="rocket" theme="filled"/>
             <span>数据集</span>
           </span>
         }
@@ -30,7 +30,7 @@ export default class SideMenu extends React.Component {
     return (
       <Menu.Item key="task">
         <Link to={'/'}>
-          <Icon type="align-left" />
+          <Icon type="align-left"/>
           <span>任务</span>
         </Link>
       </Menu.Item>
@@ -41,7 +41,7 @@ export default class SideMenu extends React.Component {
     return (
       <Menu.Item key="setting">
         <Link to={'/'}>
-          <Icon type="setting" />
+          <Icon type="setting"/>
           <span>个人中心</span>
         </Link>
       </Menu.Item>
@@ -58,8 +58,8 @@ export default class SideMenu extends React.Component {
       >
         <Menu.Item key="dashboard">
           <Link to={'/'}>
-            <Icon type="pie-chart" />
-            <span>dashboard</span>
+            <Icon type="pie-chart"/>
+            <span>Dashboard</span>
           </Link>
         </Menu.Item>
         {this.renderDatasetMenu()}

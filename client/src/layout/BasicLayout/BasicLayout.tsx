@@ -1,15 +1,13 @@
 import * as React from 'react'
 import { Layout } from 'antd'
-import SideMenu from '../SideMenu/SideMenu'
+import { IBasicLayoutState } from 'declare/LayoutInterface'
 
-const { Header, Content, Sider } = Layout
+import BasicSideMenu from '../BasicSideMenu/BasicSideMenu'
+import BasicHeader from '../BasicHeader/BasicHeader'
 
-export default class BasicLayout extends React.Component<
-  {},
-  {
-    collapsed: boolean
-  }
-> {
+const { Content, Sider } = Layout
+
+export default class BasicLayout extends React.Component<any, IBasicLayoutState> {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,10 +29,10 @@ export default class BasicLayout extends React.Component<
           collapsed={this.state.collapsed}
           onCollapse={() => this.onCollapse()}
         >
-          <SideMenu />
+          <BasicSideMenu/>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
+          <BasicHeader/>
           <Content style={{ margin: '0.2rem', background: '#fff' }}>
             {this.props.children}
           </Content>
