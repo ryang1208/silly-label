@@ -1,9 +1,5 @@
 {
   "name": "silly-label-client",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "author": "",
   "license": "ISC",
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.dev.js",
@@ -22,7 +18,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.7.0",
-    "antd": "^3.13.6",
+    "antd": "^3.14.0",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
@@ -32,14 +28,14 @@
     "moment": "^2.24.0",
     "normalize.css": "^8.0.0",
     "querystring": "^0.2.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.122",
-    "@types/react": "^16.6.3",
-    "@types/react-dom": "^16.6.0",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0",
     "@types/react-router-dom": "^4.2.2",
     "autoprefixer": "^9.5.0",
     "babel-core": "^6.26.3",

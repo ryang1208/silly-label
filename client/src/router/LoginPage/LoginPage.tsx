@@ -40,6 +40,7 @@ export default class LoginPage extends React.Component<
                   }
                 />
                 <div className="split">
+                  // @ts-ignore
                   <Button
                     htmlType="button"
                     type="primary"
@@ -89,6 +90,7 @@ export default class LoginPage extends React.Component<
                   }
                 />
                 <div className="split">
+                  // @ts-ignore
                   <Button
                     htmlType="button"
                     type="primary"

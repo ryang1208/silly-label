@@ -1,15 +1,30 @@
 {
   "extends": "tslint:latest",
-  "rulesDirectory": ["node_modules/tslint-microsoft-contrib"],
+  "rulesDirectory": [
+    "node_modules/tslint-microsoft-contrib"
+  ],
   "rules": {
-    "align": [true, "parameters", "statements"],
+    "align": [
+      true,
+      "parameters",
+      "statements"
+    ],
     "arrow-parens": false,
-    "comment-format": [true, "check-space"],
+    "comment-format": [
+      true,
+      "check-space"
+    ],
     "max-classes-per-file": false,
     "member-access": false,
-    "member-ordering": [true, "static-before-instance"],
     "no-consecutive-blank-lines": true,
-    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
     "no-implicit-dependencies": false,
     "no-object-literal-type-assertion": false,
     "no-string-literal": false,
@@ -21,8 +36,16 @@
     "only-arrow-functions": false,
     "ordered-imports": false,
     "prefer-conditional-expression": false,
-    "quotemark": [true, "single", "jsx-double", "avoid-escape"],
-    "semicolon": [true, "never"],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double",
+      "avoid-escape"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
     "trailing-comma": [
       true,
       {
@@ -47,7 +70,10 @@
         "variable-declaration": "space"
       }
     ],
-    "variable-name": [true, "ban-keywords"],
+    "variable-name": [
+      true,
+      "ban-keywords"
+    ],
     "whitespace": [
       true,
       "check-branch",

@@ -21,6 +21,8 @@
     "outDir": ".tmp",
     "sourceMap": true,
     "strictNullChecks": false,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
     "target": "esnext",
     "typeRoots": [
       "./node_modules/@types",
@@ -28,7 +30,10 @@
     ]
   },
   "exclude": [
-    "bower_components",
-    "node_modules"
+    "node_modules",
+    "bower_components"
+  ],
+  "include": [
+    "src/**/*"
   ]
 }
