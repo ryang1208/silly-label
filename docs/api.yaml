@@ -66,6 +66,31 @@ paths:
                                   type: array
                                   items:
                                     $ref: '#/definitions/TaskRequirement'
+  /api/dataset:
+    post:
+      tags:
+        - dataset
+      summary: 创建数据集
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              description:
+                type: string
+              file:
+                type: string
+                format: binary
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/BaseRes'
 
   # 图片模块
   /api/image/detail:
@@ -158,6 +183,34 @@ paths:
                             type: array
                             items:
                               $ref: '#/definitions/Dataset'
+  /api/task:
+    post:
+      tags:
+        - task
+      summary: 创建一个任务
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              datasetId:
+                type: number
+              categoryId:
+                type: number
+              mimeType:
+                type: string
+                enum: [image, video]
+              label:
+                type: object
+              reward:
+                type: number
+                description: 任务奖励的金额
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/BaseRes'
 
   # 标记数据模块
   /api/label/mark/list:
