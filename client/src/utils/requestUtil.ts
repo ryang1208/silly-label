@@ -13,21 +13,24 @@ const axiosInstance = axios.create({
  */
 export function pget(url, params = {}) {
   try {
-    return axiosInstance.get(url, {
-      params,
-      validateStatus: (status) => {
-        return status >= 200 && status < 300 || status === 700
-      }
-    }).then(response => {
-      const code = response.data.code
-      const message = response.data.msg
-      if (code > 220 || code < 200) {
-        antdMessage.warn(message)
-      }
-      return response.data
-    }).catch(error => {
-      throw error
-    })
+    return axiosInstance
+      .get(url, {
+        params,
+        validateStatus: status => {
+          return (status >= 200 && status < 300) || status === 700
+        }
+      })
+      .then(response => {
+        const code = response.data.code
+        const message = response.data.msg
+        if (code > 220 || code < 200) {
+          antdMessage.warn(message)
+        }
+        return response.data
+      })
+      .catch(error => {
+        throw error
+      })
   } catch (err) {
     console.error(err.type)
     console.error(err.message)
@@ -41,19 +44,19 @@ export function pget(url, params = {}) {
  */
 export function ppost(url, params = {}) {
   try {
-    return axios.post(
-      url,
-      params
-    ).then(response => {
-      const code = response.data.code
-      const message = response.data.msg
-      if (code > 220 || code < 200) {
-        antdMessage.warn(message)
-      }
-      return response.data
-    }).catch(error => {
-      throw error
-    })
+    return axios
+      .post(url, params)
+      .then(response => {
+        const code = response.data.code
+        const message = response.data.msg
+        if (code > 220 || code < 200) {
+          antdMessage.warn(message)
+        }
+        return response.data
+      })
+      .catch(error => {
+        throw error
+      })
   } catch (err) {
     console.error(err.type)
     console.error(err.message)
@@ -66,11 +69,14 @@ export function ppost(url, params = {}) {
  */
 export function asyncAll(requests = []) {
   try {
-    return axios.all(requests).then(resultArr => {
-      return resultArr
-    }).catch(error => {
-      throw error
-    })
+    return axios
+      .all(requests)
+      .then(resultArr => {
+        return resultArr
+      })
+      .catch(error => {
+        throw error
+      })
   } catch (err) {
     console.error(err.type)
     console.error(err.message)
