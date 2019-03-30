@@ -1,0 +1,286 @@
+swagger: '2.0'
+
+info:
+  version: '1.0.0'
+  title: 'Silly Label'
+  description: '傻标'
+
+tags:
+  - name: 'user'
+    description: '用户'
+  - name: 'dataset'
+    description: '数据集'
+  - name: 'image'
+    description: '图片'
+  - name: 'task'
+    description: '任务'
+  - name: 'label'
+    description: '标记'
+
+host: virtserver.swaggerhub.com
+basePath: /MrOhyang/silly-label/1.0.0
+schemes:
+  - https
+  - http
+
+paths:
+  # 数据集模块
+  /api/dataset/list:
+    get:
+      tags:
+        - 'dataset'
+      summary: '获取数据集列表'
+      description: '获取自己所能看到的数据集'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'name'
+          in: 'query'
+          type: 'string'
+          description: '模糊匹配数据集名称（可选）'
+        - name: 'page'
+          in: 'query'
+          type: 'number'
+          description: '第几页（可选）- 看前期是否做分页'
+      responses:
+        200:
+          description: ''
+          schema:
+            allOf:
+              - $ref: '#/definitions/BaseRes'
+              - type: 'object'
+                properties:
+                  msg:
+                    type: 'object'
+                    properties:
+                      count:
+                        type: 'number'
+                      items:
+                        type: 'array'
+                        items:
+                          allOf:
+                            - $ref: '#/definitions/Dataset'
+                            - type: 'object'
+                              properties:
+                                taskRequirements:
+                                  type: 'array'
+                                  items:
+                                    $ref: '#/definitions/TaskRequirement'
+
+  # 图片模块
+  /api/image/detail:
+    get:
+      tags:
+        - 'image'
+      summary: '获取图片详情'
+      description: ''
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'index'
+          in: 'query'
+          type: 'string'
+          description: '图片在数据集中的索引位置'
+          required: true
+      responses:
+        200:
+          description: ''
+          schema:
+            allOf:
+              - $ref: '#/definitions/BaseRes'
+              - type: 'object'
+                properties:
+                  msg:
+                    $ref: '#/definitions/Image'
+
+  # 任务模块
+  /api/task/list:
+    get:
+      tags:
+        - 'task'
+      summary: '获取任务列表'
+      description: ''
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'datasetId'
+          in: 'query'
+          type: 'number'
+          description: '数据集 id（可选）'
+        - name: 'mimeType'
+          in: 'query'
+          type: 'string'
+          enum: ['image', 'video']
+          description: '媒体类型（可选）'
+        - name: 'page'
+          in: 'query'
+          type: 'number'
+          description: '第几页（可选）- 看前期是否做分页'
+      responses:
+        200:
+          description: '注意：返回值 msg 的 key(additionalProp) 为 mimeType'
+          schema:
+            allOf:
+              - $ref: '#/definitions/BaseRes'
+              - type: 'object'
+                properties:
+                  msg:
+                    type: 'object'
+                    description: 'key 为 mimeType'
+                    additionalProperties:
+                      $ref: '#/definitions/TaskRequirement'
+  /api/task/detail:
+    get:
+      tags:
+        - 'task'
+      summary: '获取图片任务详情，包含数据集详情'
+      description: ''
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'query'
+          type: 'string'
+          description: '任务 id'
+          required: true
+        - name: 'mimeType'
+          in: 'query'
+          type: 'string'
+          enum: ['image', 'video']
+          description: '图片 or 视频'
+      responses:
+        200:
+          description: ''
+          schema:
+            allOf:
+              - $ref: '#/definitions/BaseRes'
+              - type: 'object'
+                properties:
+                  msg:
+                    allOf:
+                      - $ref: '#/definitions/TaskRequirement'
+                      - type: 'object'
+                        properties:
+                          category:
+                            $ref: '#/definitions/TaskCategory'
+                          datasets:
+                            type: 'array'
+                            items:
+                              $ref: '#/definitions/Dataset'
+
+  # 标记数据模块
+  /api/label/mark:
+    get:
+      tags:
+        - 'label'
+      summary: '获取标记数据列表'
+      description: '获取某一数据集、某一张图片的所有标记数据'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'taskRequirementId'
+          in: 'query'
+          type: number
+          description: '任务需求 id'
+          required: true
+        - name: 'mimeType'
+          in: 'query'
+          type: 'string'
+          enum: ['image', 'video']
+          description: '图片 or 视频'
+          required: true
+        - name: 'index'
+          in: 'query'
+          type: 'number'
+          description: '题目索引'
+          required: true
+      responses:
+        200:
+          description: ''
+          schema:
+            allOf:
+              - $ref: '#/definitions/BaseRes'
+              - type: 'object'
+                properties:
+                  msg:
+                    type: 'array'
+                    items:
+                      $ref: '#/definitions/LabelMark'
+
+definitions:
+  # 通用返回格式
+  BaseRes:
+    type: 'object'
+    properties:
+      code:
+        type: 'number'
+  # 数据集
+  Dataset:
+    type: 'object'
+    properties:
+      id:
+        type: 'number'
+      userId:
+        type: 'number'
+      name:
+        type: 'string'
+      description:
+        type: 'string'
+      uploadTime:
+        type: 'string'
+        format: 'date-time'
+      uploadCount:
+        type: 'string'
+        format: 'date-time'
+  # 图片
+  Image:
+    type: 'object'
+    properties:
+      id:
+        type: 'number'
+      url:
+        type: 'string'
+  # 任务需求
+  TaskRequirement:
+    type: 'object'
+    properties:
+      id:
+        type: 'number'
+      userId:
+        type: 'number'
+      datasetId:
+        type: 'number'
+      categoryId:
+        type: 'number'
+      label:
+        type: 'object'
+      reward:
+        type: 'boolean'
+      verifyStatus:
+        type: 'boolean'
+  # 任务类型
+  TaskCategory:
+    type: 'object'
+    properties:
+      id:
+        type: 'number'
+      categoryName:
+        type: 'string'
+  # 标记数据
+  LabelMark:
+    type: 'object'
+    properties:
+      id:
+        type: 'number'
+      userId:
+        type: 'number'
+      datasetId:
+        type: 'number'
+      imageId:
+        type: 'number'
+      imageTaskRequirementId:
+        type: 'number'
+      imageUrl:
+        type: 'string'
+      labelContent:
+        type: 'string'
