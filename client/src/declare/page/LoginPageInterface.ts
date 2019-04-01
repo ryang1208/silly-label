@@ -1,6 +1,6 @@
 import { IPageProps } from 'declare/CommonInterface'
 import { LoginPageModel } from 'router/LoginPage/LoginPageModel'
 
-export interface ILoginPageInterfaceProps extends IPageProps {
+export interface ILoginPageProps extends IPageProps {
   loginPageModel: LoginPageModel
 }

@@ -1,16 +1,13 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Icon, Input, Button, Row, Col } from 'antd'
-import { ILoginPageInterfaceProps } from 'declare/page/LoginPageInterface'
+import { ILoginPageProps } from 'declare/page/LoginPageInterface'
 
 import './LoginPage.less'
 
 @inject('loginPageModel')
 @observer
-export default class LoginPage extends React.Component<
-  ILoginPageInterfaceProps,
-  any
-> {
+export default class LoginPage extends React.Component<ILoginPageProps, any> {
   render() {
     const { loginPageModel, history } = this.props
 

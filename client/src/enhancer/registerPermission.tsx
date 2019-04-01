@@ -89,7 +89,7 @@ export const PermissionCheck = {
 
 const ComponentStatus = {
   PENDING: 'pending',
-  FULL_FILLED: 'full_filled',
+  FULLFILLED: 'fullfilled',
   REJECTED: 'rejected'
 }
 
@@ -106,7 +106,7 @@ export default function registerPermission(...permissions: Permission[]) {
       componentDidMount(): void {
         validate(permissions).then(
           resolveRes => {
-            this.setState({ status: ComponentStatus.FULL_FILLED })
+            this.setState({ status: ComponentStatus.FULLFILLED })
           },
           rejectRes => {
             this.setState({ status: ComponentStatus.REJECTED })
@@ -121,7 +121,7 @@ export default function registerPermission(...permissions: Permission[]) {
             {status === ComponentStatus.PENDING && (
               <div id="loading">loading</div>
             )}
-            {status === ComponentStatus.FULL_FILLED && (
+            {status === ComponentStatus.FULLFILLED && (
               <Component {...this.props} />
             )}
             {status === ComponentStatus.REJECTED && <NoPermission />}
