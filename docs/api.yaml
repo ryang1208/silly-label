@@ -145,9 +145,15 @@ paths:
                 properties:
                   msg:
                     type: object
-                    description: key 为 mimeType
-                    additionalProperties:
-                      $ref: '#/definitions/TaskRequirement'
+                    properties:
+                      image:
+                        type: array
+                        items:
+                          $ref: '#/definitions/TaskRequirement'
+                      video:
+                        type: array
+                        items:
+                          $ref: '#/definitions/TaskRequirement'
   /api/task/detail:
     get:
       tags:
