@@ -99,7 +99,7 @@ paths:
         - image
       summary: 获取图片详情
       parameters:
-        - name: index
+        - name: idx
           in: query
           type: string
           description: 图片在数据集中的索引位置
@@ -237,7 +237,7 @@ paths:
           enum: [image, video]
           description: 图片 or 视频
           required: true
-        - name: index
+        - name: idx
           in: query
           type: number
           description: 题目索引
