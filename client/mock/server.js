@@ -1,6 +1,10 @@
 let express = require('express')
 let app = express()
 
+app.use(require('./datas/dataset'))
+app.use(require('./datas/image'))
+app.use(require('./datas/label'))
+app.use(require('./datas/task'))
 app.use(require('./datas/userInfoList'))
 
 let ip = '0.0.0.0'
