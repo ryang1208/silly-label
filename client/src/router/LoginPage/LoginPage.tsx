@@ -37,16 +37,13 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                   }
                 />
                 <div className="split">
-                  {
-                    // @ts-ignore
-                    <Button
-                      htmlType="button"
-                      type="primary"
-                      className="login-form-button"
-                      onClick={() => loginPageModel.login(history)}>
-                      登录
-                    </Button>
-                  }
+                  <Button
+                    htmlType="button"
+                    type="primary"
+                    className="login-form-button"
+                    onClick={() => loginPageModel.login(history)}>
+                    登录
+                  </Button>
                   &nbsp;&nbsp;Or{' '}
                   <span
                     className="switch"
@@ -89,16 +86,13 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                   }
                 />
                 <div className="split">
-                  {
-                    // @ts-ignore
-                    <Button
-                      htmlType="button"
-                      type="primary"
-                      className="register-form-button"
-                      onClick={() => loginPageModel.register(history)}>
-                      注册
-                    </Button>
-                  }
+                  <Button
+                    htmlType="button"
+                    type="primary"
+                    className="register-form-button"
+                    onClick={() => loginPageModel.register(history)}>
+                    注册
+                  </Button>
                   &nbsp;&nbsp;Or{' '}
                   <span
                     className="switch"
