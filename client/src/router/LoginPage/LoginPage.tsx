@@ -19,7 +19,7 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
               <div className="login-content">
                 <Input
                   className="split"
-                  prefix={<Icon type="user"/>}
+                  prefix={<Icon type="user" />}
                   placeholder="用户名"
                   value={loginPageModel.loginUsername}
                   onChange={e =>
@@ -28,7 +28,7 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                 />
                 <Input
                   className="split"
-                  prefix={<Icon type="lock"/>}
+                  prefix={<Icon type="lock" />}
                   placeholder="密码"
                   value={loginPageModel.loginPassword}
                   type="password"
@@ -61,7 +61,7 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
               <div className="register-content">
                 <Input
                   className="split"
-                  prefix={<Icon type="user"/>}
+                  prefix={<Icon type="user" />}
                   placeholder="用户名"
                   value={loginPageModel.registerUsername}
                   onChange={e =>
@@ -70,7 +70,7 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                 />
                 <Input
                   className="split"
-                  prefix={<Icon type="lock"/>}
+                  prefix={<Icon type="lock" />}
                   placeholder="密码"
                   type="password"
                   value={loginPageModel.registerPassword}
@@ -80,7 +80,7 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                 />
                 <Input
                   className="split"
-                  prefix={<Icon type="lock"/>}
+                  prefix={<Icon type="lock" />}
                   placeholder="确认密码"
                   type="password"
                   value={loginPageModel.registerPasswordConfirm}

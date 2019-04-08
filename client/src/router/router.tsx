@@ -17,7 +17,7 @@ export const routerOutline = {
 const router = (
   <BrowserRouter>
     <div>
-      <Route strict path={routerOutline.LoginPage} component={LoginPage}/>
+      <Route strict path={routerOutline.LoginPage} component={LoginPage} />
       <Route
         path={`${routerPrefix}/panel`}
         component={withSubscription(
