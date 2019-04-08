@@ -11,13 +11,13 @@ const routerPrefix = '/label'
 
 export const routerOutline = {
   LoginPage: `${routerPrefix}/login`,
-  HelloPage: `${routerPrefix}/hello`
+  HelloPage: `${routerPrefix}/panel/hello`
 }
 
 const router = (
   <BrowserRouter>
     <div>
-      <Route strict path={routerOutline.LoginPage} component={LoginPage} />
+      <Route strict path={routerOutline.LoginPage} component={LoginPage}/>
       <Route
         path={`${routerPrefix}/panel`}
         component={withSubscription(

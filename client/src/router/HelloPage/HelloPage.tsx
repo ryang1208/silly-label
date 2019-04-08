@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
-
 import { HelloPageModel } from './HelloPageModel'
 
 @inject('helloPageModel')
