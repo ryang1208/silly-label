@@ -36,3 +36,5 @@ router.post(`/api/label/mark`, (req, res) => {
     msg: ''
   })
 })
+
+module.exports = router

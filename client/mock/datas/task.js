@@ -84,3 +84,5 @@ router.post(`/api/task`, (req, res) => {
     msg: ''
   })
 })
+
+module.exports = router

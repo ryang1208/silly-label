@@ -14,3 +14,5 @@ router.get(`/api/image/detail`, (req, res) => {
     }
   })
 })
+
+module.exports = router
