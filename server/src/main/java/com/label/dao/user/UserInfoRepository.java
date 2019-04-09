@@ -12,6 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface UserInfoRepository extends CrudRepository<UserInfo,Integer> {
 
+
+    public UserInfo findByUsername(String userName);
+
     /**
      * 更新密码
      */

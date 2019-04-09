@@ -15,4 +15,6 @@ spring:
     show-sql: true
 
 swagger.enable: true
-
+logging:
+  config: classpath:logback.xml
+  path: ./logs
