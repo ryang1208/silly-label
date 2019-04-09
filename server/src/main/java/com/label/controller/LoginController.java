@@ -1,8 +1,8 @@
 package com.label.controller;
 
 import com.label.annotation.CurrentUser;
+import com.label.bo.LoginUser;
 import com.label.exception.BusinessException;
-import com.label.po.user.LoginUser;
 import com.label.po.user.UserInfo;
 import com.label.service.UserService;
 import com.label.utils.WebUtils;
