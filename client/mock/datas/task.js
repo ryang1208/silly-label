@@ -16,6 +16,7 @@ router.get(`/api/task/list`, (req, res) => {
           userId: 1,
           datasetId: 1,
           categoryId: 1,
+          name: 'task name',
           label: {},
           reward: false,
           verifyStatus: false
@@ -27,6 +28,7 @@ router.get(`/api/task/list`, (req, res) => {
           userId: 1,
           datasetId: 2,
           categoryId: 2,
+          name: 'task name',
           label: {},
           reward: false,
           verifyStatus: false
@@ -49,6 +51,7 @@ router.get(`/api/task/detail`, (req, res) => {
       userId: 0,
       datasetId: 0,
       categoryId: 0,
+      name: 'task name',
       label: {},
       reward: false,
       verifyStatus: false,
@@ -76,6 +79,7 @@ router.post(`/api/task`, (req, res) => {
     datasetId: 1,
     categoryId: 1,
     mimeType: 'image',
+    name: 'task name',
     label: {},
     reward: 0
   }

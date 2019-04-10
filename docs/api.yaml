@@ -204,6 +204,8 @@ paths:
                 type: number
               categoryId:
                 type: number
+              name:
+                type: string
               mimeType:
                 type: string
                 enum: [image, video]
@@ -226,7 +228,7 @@ paths:
       summary: 获取标记数据列表
       description: 获取某一数据集、某一张图片的所有标记数据
       parameters:
-        - name: taskRequirementId
+        - name: requirementId
           in: query
           type: number
           description: 任务需求 id
@@ -265,7 +267,7 @@ paths:
           schema:
             type: object
             properties:
-              taskRequirementId:
+              requirementId:
                 type: number
               mimeType:
                 type: string
@@ -298,10 +300,9 @@ definitions:
         type: string
       description:
         type: string
-      uploadTime:
-        type: string
-        format: date-time
       uploadCount:
+        type: number
+      uploadTime:
         type: string
         format: date-time
   # 图片
@@ -324,6 +325,8 @@ definitions:
         type: number
       categoryId:
         type: number
+      name:
+        type: string
       label:
         type: object
       reward:
@@ -350,7 +353,7 @@ definitions:
         type: number
       imageId:
         type: number
-      imageTaskRequirementId:
+      requirementId:
         type: number
       imageUrl:
         type: string
