@@ -14,41 +14,37 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class CacheServiceImpl implements CacheService{
+public class CacheServiceImpl implements CacheService {
 
     @Autowired
     private LoginStatusRepository loginStatusRepository;
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-
-    private static Map<String,Integer> cookieMaps = new HashMap<>();
-
+    private static Map<String, Integer> cookieMaps = new HashMap<>();
 
     @PostConstruct
-    public void init(){
+    public void init() {
         logger.info("初始化cookie信息");
         initCookie();
         logger.info("初始化cookie信息结束");
     }
 
     @Override
-    public Map<String,Integer> getCookieMaps(){
+    public Map<String, Integer> getCookieMaps() {
         return cookieMaps;
     }
+
     @Override
-    public void setCookieMaps(String cookie,Integer userId){
-        cookieMaps.put(cookie,userId);
+    public void setCookieMaps(String cookie, Integer userId) {
+        cookieMaps.put(cookie, userId);
     }
 
-
-
-    private void  initCookie(){
+    private void initCookie() {
         List<LoginStatus> loginStatuses = loginStatusRepository.findByExpiredTimeAfter(new Date());
         loginStatuses.forEach(loginStatus -> {
-            cookieMaps.put(loginStatus.getState(),loginStatus.getUserId());
+            cookieMaps.put(loginStatus.getState(), loginStatus.getUserId());
         });
     }
-
 
 }

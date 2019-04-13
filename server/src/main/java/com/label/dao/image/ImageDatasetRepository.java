@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ImageDatasetRepository extends CrudRepository<ImageDataset,Integer> {
+public interface ImageDatasetRepository extends CrudRepository<ImageDataset, Integer> {
 }

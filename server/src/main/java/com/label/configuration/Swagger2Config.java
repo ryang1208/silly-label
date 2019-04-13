@@ -21,6 +21,7 @@ public class Swagger2Config {
     public static final String BASE_PACKAGE = "com.label";
     @Value("${swagger.enable}")
     private boolean enableSwagger;
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -32,11 +33,14 @@ public class Swagger2Config {
                 .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))
                 .paths(PathSelectors.any())
                 .build();
-    }    private ApiInfo apiInfo() {        return new ApiInfoBuilder()
-            .title("Swagger RESTful APIs")
-            .description("Swagger API 服务")
-            .version("1.0")
-            .build();
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Swagger RESTful APIs")
+                .description("Swagger API 服务")
+                .version("1.0")
+                .build();
     }
 
 }

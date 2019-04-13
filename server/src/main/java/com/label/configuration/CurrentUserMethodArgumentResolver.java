@@ -23,8 +23,8 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
       MethodParameter parameter,
       ModelAndViewContainer mavContainer,
       NativeWebRequest webRequest,
-      WebDataBinderFactory binderFactory)
-      throws Exception {
+      WebDataBinderFactory binderFactory
+  ) throws Exception {
     LoginUser user =
         (LoginUser) webRequest.getAttribute("currentUser", RequestAttributes.SCOPE_REQUEST);
     if (user != null) {

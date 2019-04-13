@@ -1,0 +1,146 @@
+2019-04-11 23:04:34.091  INFO 15187 --- [main] com.label.LabelApplication               : Starting LabelApplication on xfduan-pc.local with PID 15187 (/Users/xfduan/WorkSpaces/personal/silly-label/server/target/classes started by xfduan in /Users/xfduan/WorkSpaces/personal/silly-label)
+2019-04-11 23:04:34.095  INFO 15187 --- [main] com.label.LabelApplication               : No active profile set, falling back to default profiles: default
+2019-04-11 23:04:35.132  INFO 15187 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-11 23:04:35.246  INFO 15187 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103ms. Found 11 repository interfaces.
+2019-04-11 23:04:35.612  INFO 15187 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cbc82af4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-11 23:04:36.173  INFO 15187 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-11 23:04:36.202  INFO 15187 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-11 23:04:36.203  INFO 15187 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-04-11 23:04:36.215  INFO 15187 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xfduan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-04-11 23:04:36.352  INFO 15187 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/label]  : Initializing Spring embedded WebApplicationContext
+2019-04-11 23:04:36.352  INFO 15187 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2213 ms
+2019-04-11 23:04:36.654  INFO 15187 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-11 23:04:38.420  INFO 15187 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-11 23:04:38.495  INFO 15187 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-11 23:04:38.497  INFO 15187 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-11 23:04:38.791  INFO 15187 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-11 23:04:38.957  INFO 15187 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-11 23:04:40.623  INFO 15187 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-11 23:04:41.204  INFO 15187 --- [main] com.label.service.CacheServiceImpl       : 初始化cookie信息
+2019-04-11 23:04:41.383  INFO 15187 --- [main] com.label.service.CacheServiceImpl       : 初始化cookie信息结束
+2019-04-11 23:04:41.696  INFO 15187 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-04-11 23:04:41.869  WARN 15187 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-11 23:04:42.150  INFO 15187 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-04-11 23:04:42.174  INFO 15187 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-04-11 23:04:42.204  INFO 15187 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-04-11 23:04:42.407  INFO 15187 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/label'
+2019-04-11 23:04:42.410  INFO 15187 --- [main] com.label.LabelApplication               : Started LabelApplication in 28.837 seconds (JVM running for 29.552)
+2019-04-11 23:06:49.278  INFO 15187 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/label]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-11 23:06:49.282  INFO 15187 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-11 23:06:49.312  INFO 15187 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 29 ms
+2019-04-11 23:06:49.343  WARN 15187 --- [http-nio-8080-exec-3] o.s.web.servlet.PageNotFound             : No mapping for POST /label/login
+2019-04-11 23:06:49.362  INFO 15187 --- [http-nio-8080-exec-3] c.l.c.AuthenticationInterceptor          : 用户未登录
+2019-04-11 23:10:17.328  INFO 15187 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-11 23:10:17.365  INFO 15187 --- [Thread-3] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-11 23:10:39.363  INFO 15252 --- [main] com.label.LabelApplication               : Starting LabelApplication on xfduan-pc.local with PID 15252 (/Users/xfduan/WorkSpaces/personal/silly-label/server/target/classes started by xfduan in /Users/xfduan/WorkSpaces/personal/silly-label)
+2019-04-11 23:10:39.369  INFO 15252 --- [main] com.label.LabelApplication               : No active profile set, falling back to default profiles: default
+2019-04-11 23:10:40.131  INFO 15252 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-11 23:10:40.219  INFO 15252 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81ms. Found 11 repository interfaces.
+2019-04-11 23:10:40.536  INFO 15252 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9813bc55] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-11 23:10:40.968  INFO 15252 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-11 23:10:40.991  INFO 15252 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-11 23:10:40.992  INFO 15252 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-04-11 23:10:41.002  INFO 15252 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xfduan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-04-11 23:10:41.103  INFO 15252 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-11 23:10:41.103  INFO 15252 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1697 ms
+2019-04-11 23:10:41.340  INFO 15252 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-11 23:10:42.728  INFO 15252 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-11 23:10:42.798  INFO 15252 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-11 23:10:42.800  INFO 15252 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-11 23:10:42.968  INFO 15252 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-11 23:10:43.116  INFO 15252 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-11 23:10:44.590  INFO 15252 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-11 23:10:45.094  INFO 15252 --- [main] com.label.service.CacheServiceImpl       : 初始化cookie信息
+2019-04-11 23:10:45.269  INFO 15252 --- [main] com.label.service.CacheServiceImpl       : 初始化cookie信息结束
+2019-04-11 23:10:45.552  INFO 15252 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-04-11 23:10:45.692  WARN 15252 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-11 23:10:45.913  INFO 15252 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-04-11 23:10:45.932  INFO 15252 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-04-11 23:10:45.959  INFO 15252 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-04-11 23:10:46.141  INFO 15252 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-11 23:10:46.145  INFO 15252 --- [main] com.label.LabelApplication               : Started LabelApplication in 27.174 seconds (JVM running for 27.796)
+2019-04-11 23:10:52.495  INFO 15252 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-11 23:10:52.497  INFO 15252 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-11 23:10:52.507  INFO 15252 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-04-11 23:10:52.522  WARN 15252 --- [http-nio-8080-exec-1] o.s.web.servlet.PageNotFound             : No mapping for POST /api/label/user/login
+2019-04-11 23:10:52.533  INFO 15252 --- [http-nio-8080-exec-1] c.l.c.AuthenticationInterceptor          : 用户未登录
+2019-04-11 23:16:34.892  INFO 15252 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-11 23:16:34.930  INFO 15252 --- [Thread-3] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-11 23:16:56.843  INFO 15277 --- [main] com.label.LabelApplication               : Starting LabelApplication on xfduan-pc.local with PID 15277 (/Users/xfduan/WorkSpaces/personal/silly-label/server/target/classes started by xfduan in /Users/xfduan/WorkSpaces/personal/silly-label)
+2019-04-11 23:16:56.849  INFO 15277 --- [main] com.label.LabelApplication               : No active profile set, falling back to default profiles: default
+2019-04-11 23:16:57.577  INFO 15277 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-11 23:16:57.660  INFO 15277 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75ms. Found 11 repository interfaces.
+2019-04-11 23:16:58.013  INFO 15277 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e7c6dbe1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-11 23:16:58.404  INFO 15277 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-11 23:16:58.489  INFO 15277 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-11 23:16:58.489  INFO 15277 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-04-11 23:16:58.498  INFO 15277 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xfduan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-04-11 23:16:58.598  INFO 15277 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-11 23:16:58.598  INFO 15277 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1711 ms
+2019-04-11 23:16:58.834  INFO 15277 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-11 23:17:00.201  INFO 15277 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-11 23:17:00.277  INFO 15277 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-11 23:17:00.279  INFO 15277 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-11 23:17:00.418  INFO 15277 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-11 23:17:00.574  INFO 15277 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-11 23:17:02.084  INFO 15277 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-11 23:17:02.540  INFO 15277 --- [main] com.label.service.CacheServiceImpl       : 初始化cookie信息
+2019-04-11 23:17:02.697  INFO 15277 --- [main] com.label.service.CacheServiceImpl       : 初始化cookie信息结束
+2019-04-11 23:17:02.993  INFO 15277 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-04-11 23:17:03.131  WARN 15277 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-11 23:17:03.351  INFO 15277 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-04-11 23:17:03.369  INFO 15277 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-04-11 23:17:03.393  INFO 15277 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-04-11 23:17:03.571  INFO 15277 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-11 23:17:03.574  INFO 15277 --- [main] com.label.LabelApplication               : Started LabelApplication in 27.115 seconds (JVM running for 27.735)
+2019-04-11 23:17:12.471  INFO 15277 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-11 23:17:12.473  INFO 15277 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-11 23:17:12.496  INFO 15277 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 22 ms
+2019-04-11 23:17:12.514  WARN 15277 --- [http-nio-8080-exec-1] o.s.web.servlet.PageNotFound             : No mapping for POST /api/label/user/login
+2019-04-11 23:17:12.530  INFO 15277 --- [http-nio-8080-exec-1] c.l.c.AuthenticationInterceptor          : 用户未登录
+2019-04-11 23:20:21.514  WARN 15277 --- [http-nio-8080-exec-4] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon.ico
+2019-04-11 23:20:21.521  INFO 15277 --- [http-nio-8080-exec-4] c.l.c.AuthenticationInterceptor          : 用户未登录
+2019-04-11 23:21:34.235  INFO 15277 --- [http-nio-8080-exec-7] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-11 23:22:23.077  INFO 15277 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-11 23:22:23.088  INFO 15277 --- [Thread-3] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-11 23:31:18.126  INFO 15388 --- [main] com.label.LabelApplication               : Starting LabelApplication on xfduan-pc.local with PID 15388 (/Users/xfduan/WorkSpaces/personal/silly-label/server/target/classes started by xfduan in /Users/xfduan/WorkSpaces/personal/silly-label)
+2019-04-11 23:31:18.130  INFO 15388 --- [main] com.label.LabelApplication               : No active profile set, falling back to default profiles: default
+2019-04-11 23:31:19.198  INFO 15388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-11 23:31:19.327  INFO 15388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109ms. Found 11 repository interfaces.
+2019-04-11 23:31:19.682  INFO 15388 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b19e4a34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-11 23:31:20.161  INFO 15388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-04-11 23:31:20.187  INFO 15388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-04-11 23:31:20.189  INFO 15388 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-04-11 23:31:20.202  INFO 15388 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/xfduan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-04-11 23:31:20.335  INFO 15388 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-04-11 23:31:20.336  INFO 15388 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2163 ms
+2019-04-11 23:31:20.628  INFO 15388 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-11 23:31:22.137  INFO 15388 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-04-11 23:31:22.202  INFO 15388 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-04-11 23:31:22.203  INFO 15388 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-04-11 23:31:22.445  INFO 15388 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-04-11 23:31:22.606  INFO 15388 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-04-11 23:31:24.313  INFO 15388 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-04-11 23:31:24.854  INFO 15388 --- [main] com.label.service.CacheServiceImpl       : 初始化cookie信息
+2019-04-11 23:31:25.029  INFO 15388 --- [main] com.label.service.CacheServiceImpl       : 初始化cookie信息结束
+2019-04-11 23:31:25.416  INFO 15388 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-04-11 23:31:25.579  WARN 15388 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-04-11 23:31:25.825  INFO 15388 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-04-11 23:31:25.844  INFO 15388 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-04-11 23:31:25.870  INFO 15388 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-04-11 23:31:26.066  INFO 15388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-04-11 23:31:26.069  INFO 15388 --- [main] com.label.LabelApplication               : Started LabelApplication in 28.362 seconds (JVM running for 29.008)
+2019-04-11 23:31:36.257  INFO 15388 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-04-11 23:31:36.258  INFO 15388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-04-11 23:31:36.271  INFO 15388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-04-11 23:31:36.354  INFO 15388 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-04-11 23:31:44.968  INFO 15388 --- [Thread-3] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-04-11 23:31:44.976  INFO 15388 --- [Thread-3] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

@@ -10,8 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface UserInfoRepository extends CrudRepository<UserInfo,Integer> {
-
+public interface UserInfoRepository extends CrudRepository<UserInfo, Integer> {
 
     public UserInfo findByUsername(String userName);
 
@@ -20,14 +19,12 @@ public interface UserInfoRepository extends CrudRepository<UserInfo,Integer> {
      */
     @Modifying
     @Transactional(propagation = Propagation.REQUIRED)
-    @Query(value = "update user_info set password = :password where id =:id",nativeQuery = true)
+    @Query(value = "update user_info set password = :password where id =:id", nativeQuery = true)
     public void updatePassword(@Param("id") Integer id, @Param("password") String password);
-
 
     @Modifying
     @Transactional(propagation = Propagation.REQUIRED)
-    @Query(value = "update user_info set password = :password where username =:username",nativeQuery = true)
+    @Query(value = "update user_info set password = :password where username =:username", nativeQuery = true)
     public void update(@Param("username") String username, @Param("password") String password);
-
 
 }

@@ -16,6 +16,4 @@ public class UserInfoVO {
      * 新密码
      */
     private String newPassword;
-
-
 }

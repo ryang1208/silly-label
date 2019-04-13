@@ -13,4 +13,5 @@ public class LoginUser {
   private String password;
   /** state信息 */
   private String state;
+
 }
