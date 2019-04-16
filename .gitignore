@@ -8,3 +8,5 @@
 .vscode/
 
 ### Project ###
+logs/
+*.log
