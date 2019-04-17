@@ -1,21 +1,21 @@
 package com.label.configuration;
 
 import com.label.bo.LoginUser;
-import com.label.constant.CookieConstant;
+import com.label.util.constant.CookieConstant;
+import com.label.util.constant.HttpCode;
 import com.label.dao.user.UserInfoRepository;
 import com.label.po.user.UserInfo;
 import com.label.service.CacheService;
-import com.label.utils.CookieUtils;
-
-import java.util.Map;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.label.util.CookieUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
@@ -31,11 +31,12 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         // todo:用户登录失败的返回
         Cookie cookie = CookieUtils.get(request, CookieConstant.TOKEN);
         if (cookie == null) {
-            // response.setStatus(405);
+            response.setStatus(HttpCode.StatusNoContent);
             logger.info("用户未登录");
             return false;
         }
 
+        // TODO 不要用 cookie 缓存，直接存 Map<state, user> 的这种，不然你这边每次还是要 findUserInfoById
         Map<String, Integer> cookieMaps = cacheService.getCookieMaps();
         Integer userId = cookieMaps.get(cookie.getValue());
         if (userId == null) {
@@ -52,10 +53,9 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         LoginUser loginUser = new LoginUser();
         loginUser.setUserId(userId);
         loginUser.setUsername(userInfo.getUsername());
-        loginUser.setPassword(userInfo.getPassword());
         loginUser.setState(cookie.getValue());
 
-        request.setAttribute("currentUser", loginUser);
+        request.setAttribute("loginUser", loginUser);
 
         return true;
     }

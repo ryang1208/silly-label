@@ -5,17 +5,12 @@ import java.util.Map;
 public interface CacheService {
 
     /**
-     * 获得cookie缓存对象
-     *
-     * @return
+     * 获得 cookie 缓存对象
      */
     public Map<String, Integer> getCookieMaps();
 
     /**
-     * 设置cookie
-     *
-     * @param cookie
-     * @param userId
+     * 设置 cookie
      */
     void setCookieMaps(String cookie, Integer userId);
 }

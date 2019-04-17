@@ -1,4 +1,4 @@
-package com.label.constant;
+package com.label.util.constant;
 
 public class HttpCode {
 
@@ -26,6 +26,9 @@ public class HttpCode {
     public static final int _ = 306; // RFC 7231, 6.4.6 (Unused)
     public static final int StatusTemporaryRedirect = 307; // RFC 7231, 6.4.7
     public static final int StatusPermanentRedirect = 308; // RFC 7538, 3
+
+    // 自定义
+    public static final int StatusUserNotLogin = 310;
 
     public static final int StatusBadRequest = 400; // RFC 7231, 6.5.1
     public static final int StatusUnauthorized = 401; // RFC 7235, 3.1

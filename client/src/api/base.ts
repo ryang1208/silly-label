@@ -1,7 +1,7 @@
-// import { apiFetchGet } from '../utils/fetch-util'
+import userApi from 'api/userApi'
 
 const BaseApi = {
-  // todo
+  user: userApi
 }
 
 export default BaseApi

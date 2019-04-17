@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import java.util.List;
 
 @Configuration
-public class WebMvcConfigurer extends WebMvcConfigurationSupport {
+public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -22,8 +22,7 @@ public class WebMvcConfigurer extends WebMvcConfigurationSupport {
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        argumentResolvers.add(currentUserMethodArgumentResolver());
-        super.addArgumentResolvers(argumentResolvers);
+        argumentResolvers.add(new LoginUserMethodArgumentResolver());
     }
 
     @Override
@@ -38,11 +37,6 @@ public class WebMvcConfigurer extends WebMvcConfigurationSupport {
     @Bean
     public AuthenticationInterceptor authenticationInterceptor() {
         return new AuthenticationInterceptor();
-    }
-
-    @Bean
-    public CurrentUserMethodArgumentResolver currentUserMethodArgumentResolver() {
-        return new CurrentUserMethodArgumentResolver();
     }
 
 }

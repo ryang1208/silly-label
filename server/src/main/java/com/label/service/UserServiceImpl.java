@@ -1,24 +1,23 @@
 package com.label.service;
 
 import com.label.bo.LoginUser;
-import com.label.constant.CookieConstant;
 import com.label.dao.user.LoginStatusRepository;
 import com.label.dao.user.UserInfoRepository;
 import com.label.exception.BusinessException;
 import com.label.po.user.LoginStatus;
 import com.label.po.user.UserInfo;
-import com.label.utils.CookieUtils;
-import com.label.utils.TimeUtils;
+import com.label.util.CookieUtils;
+import com.label.util.TimeUtils;
+import com.label.util.constant.CookieConstant;
 import com.label.vo.UserInfoVO;
-
-import java.util.Date;
-import java.util.Map;
-import java.util.UUID;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
+import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -75,7 +74,8 @@ public class UserServiceImpl implements UserService {
             if (existUser.getPassword().equals(encryptPassword)) {
                 // 修改密码
                 userInfoRepository.updatePassword(
-                        existUser.getId(), DigestUtils.md5DigestAsHex(userInfoVO.getNewPassword().getBytes())
+                        existUser.getId(),
+                        DigestUtils.md5DigestAsHex(userInfoVO.getNewPassword().getBytes())
                 );
             }
             return;
@@ -87,6 +87,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void logout(HttpServletResponse response, LoginUser loginUser) {
         // 从内存中删除
+        // TODO 此处同样记得更改
         Map<String, Integer> cookieMaps = cacheService.getCookieMaps();
         cookieMaps.remove(loginUser.getState());
 
@@ -96,4 +97,5 @@ public class UserServiceImpl implements UserService {
         // 在返回头里返回
         CookieUtils.set(response, CookieConstant.TOKEN, null, 0);
     }
+
 }

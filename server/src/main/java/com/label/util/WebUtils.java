@@ -1,6 +1,6 @@
-package com.label.utils;
+package com.label.util;
 
-import com.label.constant.HttpCode;
+import com.label.util.constant.HttpCode;
 import com.label.vo.ResultVO;
 
 public class WebUtils {
@@ -8,15 +8,23 @@ public class WebUtils {
     public static ResultVO success() {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(HttpCode.StatusOK);
-        resultVO.setMsg("success");
+        resultVO.setData("success");
 
         return resultVO;
     }
 
     public static ResultVO result(Object data) {
         ResultVO resultVO = new ResultVO();
-        resultVO.setCode(200);
-        resultVO.setMsg(data);
+        resultVO.setCode(HttpCode.StatusOK);
+        resultVO.setData(data);
+
+        return resultVO;
+    }
+
+    public static ResultVO result(Integer code, Object data) {
+        ResultVO resultVO = new ResultVO();
+        resultVO.setCode(code);
+        resultVO.setData(data);
 
         return resultVO;
     }
@@ -24,7 +32,7 @@ public class WebUtils {
     public static ResultVO error(Integer code, Object data) {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
-        resultVO.setMsg(data);
+        resultVO.setData(data);
 
         return resultVO;
     }

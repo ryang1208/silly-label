@@ -1,4 +1,4 @@
-package com.label.utils;
+package com.label.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

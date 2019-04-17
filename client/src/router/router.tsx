@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { withSubscription } from 'enhancer/withSubscription'
-import BasicLayout from 'layout/BasicLayout/BasicLayout'
 import loadable from 'enhancer/loadable'
+
+import BasicLayout from 'layout/BasicLayout/BasicLayout'
 
 const LoginPage = loadable(() => import('./LoginPage/LoginPage'))
 const HelloPage = loadable(() => import('./HelloPage/HelloPage'))

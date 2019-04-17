@@ -2,6 +2,7 @@ import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import { Icon, Input, Button, Row, Col } from 'antd'
 import { ILoginPageProps } from 'declare/page/LoginPageInterface'
+import { LOGIN_PAGE_STATUS } from 'router/LoginPage/LoginPageModel'
 
 import './LoginPage.less'
 
@@ -10,6 +11,14 @@ import './LoginPage.less'
 export default class LoginPage extends React.Component<ILoginPageProps, any> {
   render() {
     const { loginPageModel, history } = this.props
+
+    const {
+      loginUsername,
+      loginPassword,
+      registerUsername,
+      registerPassword,
+      registerPasswordConfirm
+    } = loginPageModel.status
 
     return (
       <div className="login-container">
@@ -21,20 +30,20 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                   className="split"
                   prefix={<Icon type="user" />}
                   placeholder="用户名"
-                  value={loginPageModel.loginUsername}
-                  onChange={e =>
-                    loginPageModel.listenLoginUsername(e.target.value)
-                  }
+                  value={loginUsername}
+                  onChange={e => {
+                    loginPageModel.setStatus({ loginUsername: e.target.value })
+                  }}
                 />
                 <Input
                   className="split"
                   prefix={<Icon type="lock" />}
                   placeholder="密码"
-                  value={loginPageModel.loginPassword}
+                  value={loginPassword}
                   type="password"
-                  onChange={e =>
-                    loginPageModel.listenLoginPassword(e.target.value)
-                  }
+                  onChange={e => {
+                    loginPageModel.setStatus({ loginPassword: e.target.value })
+                  }}
                 />
                 <div className="split">
                   <Button
@@ -47,7 +56,11 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                   &nbsp;&nbsp;Or{' '}
                   <span
                     className="switch"
-                    onClick={() => loginPageModel.switchRegister()}>
+                    onClick={() => {
+                      loginPageModel.setStatus({
+                        pageStatus: LOGIN_PAGE_STATUS.REGISTER
+                      })
+                    }}>
                     注册账号
                   </span>
                 </div>
@@ -60,30 +73,36 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                   className="split"
                   prefix={<Icon type="user" />}
                   placeholder="用户名"
-                  value={loginPageModel.registerUsername}
-                  onChange={e =>
-                    loginPageModel.listenRegisterUsername(e.target.value)
-                  }
+                  value={registerUsername}
+                  onChange={e => {
+                    loginPageModel.setStatus({
+                      registerUsername: e.target.value
+                    })
+                  }}
                 />
                 <Input
                   className="split"
                   prefix={<Icon type="lock" />}
                   placeholder="密码"
                   type="password"
-                  value={loginPageModel.registerPassword}
-                  onChange={e =>
-                    loginPageModel.listenRegisterPassword(e.target.value)
-                  }
+                  value={registerPassword}
+                  onChange={e => {
+                    loginPageModel.setStatus({
+                      registerPassword: e.target.value
+                    })
+                  }}
                 />
                 <Input
                   className="split"
                   prefix={<Icon type="lock" />}
                   placeholder="确认密码"
                   type="password"
-                  value={loginPageModel.registerPasswordConfirm}
-                  onChange={e =>
-                    loginPageModel.listenRegisterPasswordConfirm(e.target.value)
-                  }
+                  value={registerPasswordConfirm}
+                  onChange={e => {
+                    loginPageModel.setStatus({
+                      registerPasswordConfirm: e.target.value
+                    })
+                  }}
                 />
                 <div className="split">
                   <Button
@@ -96,7 +115,11 @@ export default class LoginPage extends React.Component<ILoginPageProps, any> {
                   &nbsp;&nbsp;Or{' '}
                   <span
                     className="switch"
-                    onClick={() => loginPageModel.switchLogin()}>
+                    onClick={() => {
+                      loginPageModel.setStatus({
+                        pageStatus: LOGIN_PAGE_STATUS.LOGIN
+                      })
+                    }}>
                     直接登录
                   </span>
                 </div>

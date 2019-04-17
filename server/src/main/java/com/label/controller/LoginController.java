@@ -1,11 +1,10 @@
 package com.label.controller;
 
-import com.label.annotation.CurrentUser;
 import com.label.bo.LoginUser;
 import com.label.exception.BusinessException;
 import com.label.po.user.UserInfo;
 import com.label.service.UserService;
-import com.label.utils.WebUtils;
+import com.label.util.WebUtils;
 import com.label.vo.ResultVO;
 import com.label.vo.UserInfoVO;
 import io.swagger.annotations.Api;
@@ -60,7 +59,7 @@ public class LoginController {
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @ApiOperation(value = "登出功能", response = String.class)
-    public ResultVO logout(HttpServletResponse response, @CurrentUser LoginUser loginUser) {
+    public ResultVO logout(HttpServletResponse response, LoginUser loginUser) {
         userService.logout(response, loginUser);
         return WebUtils.success();
     }

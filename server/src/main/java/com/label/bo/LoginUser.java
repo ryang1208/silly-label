@@ -14,10 +14,6 @@ public class LoginUser {
      */
     private String username;
     /**
-     * 密码
-     */
-    private String password;
-    /**
      * state信息
      */
     private String state;
