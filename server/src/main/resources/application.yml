@@ -17,5 +17,5 @@ spring:
 swagger.enable: true
 
 logging:
-  config: classpath:logback.xml
+  config: classpath:logback-spring.xml
   path: ./logs
