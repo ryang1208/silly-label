@@ -6,10 +6,12 @@ import com.label.service.CacheService;
 import com.label.util.CookieUtils;
 import com.label.util.constant.CookieConstant;
 import com.label.util.constant.HttpCode;
+
 import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,32 +19,33 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
-  @Autowired private UserInfoRepository userInfoRepository;
-  @Autowired private CacheService cacheService;
+    @Autowired
+    private UserInfoRepository userInfoRepository;
+    @Autowired
+    private CacheService cacheService;
 
-  private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
-  @Override
-  public boolean preHandle(
-      HttpServletRequest request, HttpServletResponse response, Object handler) {
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
-    Cookie cookie = CookieUtils.get(request, CookieConstant.TOKEN);
-    if (cookie == null) {
-      response.setStatus(HttpCode.StatusUserNotLogin);
-      logger.info("用户未登录");
-      return false;
+        Cookie cookie = CookieUtils.get(request, CookieConstant.TOKEN);
+        if (cookie == null) {
+            response.setStatus(HttpCode.StatusUserNotLogin);
+            logger.info("用户未登录");
+            return false;
+        }
+
+        Map<String, LoginUser> cookieMaps = cacheService.getCookieMaps();
+        LoginUser loginUser = cookieMaps.get(cookie.getValue());
+        if (loginUser == null) {
+            response.setStatus(HttpCode.StatusUserNotLogin);
+            logger.info("用户信息错误");
+            return false;
+        }
+
+        request.setAttribute("loginUser", loginUser);
+
+        return true;
     }
-
-    Map<String, LoginUser> cookieMaps = cacheService.getCookieMaps();
-    LoginUser loginUser = cookieMaps.get(cookie.getValue());
-    if (loginUser == null) {
-      response.setStatus(HttpCode.StatusUserNotLogin);
-      logger.info("用户信息错误");
-      return false;
-    }
-
-    request.setAttribute("loginUser", loginUser);
-
-    return true;
-  }
 }
