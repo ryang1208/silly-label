@@ -9,10 +9,10 @@ public interface CacheService {
     /**
      * 获得 cookie 缓存对象
      */
-    public Map<String, LoginUser> getCookieMaps();
+    public Map<String, LoginUser> getUserMaps();
 
     /**
      * 设置 cookie
      */
-    void setCookieMaps(String cookie, LoginUser loginUser);
+    void setUserMaps(String cookie, LoginUser loginUser);
 }

@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 public interface LoginStatusRepository extends CrudRepository<LoginStatus, Integer> {
 
   @Query(
-      value = "select * from login_status where expired_time >= :currentTime and del = 0 ",
+      value = "select * from login_status where state = :state and expired_time >= :currentTime and del = 0 ",
       nativeQuery = true)
-  public List<LoginStatus> findByExpiredTimeAfter(@Param("currentTime") Date currentTime);
+  public LoginStatus findByStateAndExpiredTimeAfter(@Param("state")String state,@Param("currentTime") Date currentTime);
 
   @Modifying
   @Transactional(propagation = Propagation.REQUIRED)

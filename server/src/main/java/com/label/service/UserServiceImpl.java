@@ -39,22 +39,22 @@ public class UserServiceImpl implements UserService {
             String encryptPassword = DigestUtils.md5DigestAsHex(userInfo.getPassword().getBytes());
             if (existUser.getPassword().equals(encryptPassword)) {
                 // 登录成功后缓存登录数据和插入数据库
-                String cookie = UUID.randomUUID().toString().replaceAll("-", "");
+                String token = UUID.randomUUID().toString().replaceAll("-", "");
                 LoginUser loginUser = new LoginUser();
                 loginUser.setUserId(existUser.getId());
                 loginUser.setUsername(userInfo.getUsername());
-                loginUser.setState(cookie);
+                loginUser.setState(token);
 
-                cacheService.setCookieMaps(cookie, loginUser);
+                cacheService.setUserMaps(token, loginUser);
 
                 LoginStatus loginStatus = new LoginStatus();
                 loginStatus.setUserId(existUser.getId());
-                loginStatus.setState(cookie);
+                loginStatus.setState(token);
                 loginStatus.setExpiredTime(TimeUtils.addTime(CookieConstant.EXPIRE_TIME));
                 loginStatusRepository.save(loginStatus);
 
                 CookieUtils.set(
-                        httpServletResponse, CookieConstant.TOKEN, cookie, CookieConstant.EXPIRE_TIME);
+                        httpServletResponse, CookieConstant.TOKEN, token, CookieConstant.EXPIRE_TIME);
                 return;
             }
         }
@@ -93,8 +93,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void logout(HttpServletResponse response, LoginUser loginUser) {
         // 从内存中删除
-        Map<String, LoginUser> cookieMaps = cacheService.getCookieMaps();
-        cookieMaps.remove(loginUser.getState());
+        Map<String, LoginUser> userMaps = cacheService.getUserMaps();
+        userMaps.remove(loginUser.getState());
 
         // 更新数据库
         loginStatusRepository.updateExpiredByState(loginUser.getState(), new Date());
