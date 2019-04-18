@@ -8,6 +8,7 @@ import com.label.vo.UserInfoVO;
 import javax.servlet.http.HttpServletResponse;
 
 public interface UserService {
+
     /**
      * 登录接口
      *
@@ -36,4 +37,5 @@ public interface UserService {
      * @param response
      */
     public void logout(HttpServletResponse response, LoginUser loginUser);
+
 }

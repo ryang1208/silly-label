@@ -9,7 +9,6 @@ public class WebUtils {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(HttpCode.StatusOK);
         resultVO.setData("success");
-
         return resultVO;
     }
 
@@ -17,7 +16,6 @@ public class WebUtils {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(HttpCode.StatusOK);
         resultVO.setData(data);
-
         return resultVO;
     }
 
@@ -25,7 +23,6 @@ public class WebUtils {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
         resultVO.setData(data);
-
         return resultVO;
     }
 
@@ -33,7 +30,6 @@ public class WebUtils {
         ResultVO resultVO = new ResultVO();
         resultVO.setCode(code);
         resultVO.setData(data);
-
         return resultVO;
     }
 }

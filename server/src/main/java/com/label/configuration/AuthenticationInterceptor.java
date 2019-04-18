@@ -9,17 +9,15 @@ import com.label.service.CacheService;
 import com.label.util.CookieUtils;
 import com.label.util.constant.CookieConstant;
 import com.label.util.constant.HttpCode;
-
-import java.util.Date;
-import java.util.Map;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
@@ -34,22 +32,20 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-
         Cookie cookie = CookieUtils.get(request, CookieConstant.TOKEN);
+
         if (cookie == null) {
             response.setStatus(HttpCode.StatusUserNotLogin);
             logger.info("用户未登录");
             return false;
         }
 
-        Map<String, LoginUser> userMaps = cacheService.getUserMaps();
-        LoginUser loginUser = userMaps.get(cookie.getValue());
+        LoginUser loginUser = cacheService.getUserMaps().get(cookie.getValue());
         if (loginUser == null) {
-            //如果缓存没有则从数据库里面查询
+            // 如果缓存没有则从数据库里面查询
             LoginStatus loginStatus = loginStatusRepository.findByStateAndExpiredTimeAfter(cookie.getValue(), new Date());
             if (loginStatus == null) {
                 response.setStatus(HttpCode.StatusUserNotLogin);
-                logger.info("用户信息错误");
                 return false;
             } else {
                 loginUser = new LoginUser();

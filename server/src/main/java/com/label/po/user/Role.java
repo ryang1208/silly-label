@@ -18,4 +18,5 @@ public class Role {
      * 权限名字
      */
     private String name;
+
 }

@@ -34,4 +34,5 @@ public class ImageLabelMark {
      * 打标内容
      */
     private String labelContent;
+
 }

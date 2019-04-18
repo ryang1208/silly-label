@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/api/label/user")
 @Api(value = "用户相关接口")
 public class LoginController {
+
     @Autowired
     private UserService userService;
 
@@ -63,4 +64,5 @@ public class LoginController {
         userService.logout(response, loginUser);
         return WebUtils.success();
     }
+
 }

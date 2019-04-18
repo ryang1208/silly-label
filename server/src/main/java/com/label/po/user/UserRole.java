@@ -22,4 +22,5 @@ public class UserRole {
      * 权限id
      */
     private Integer roleId;
+
 }

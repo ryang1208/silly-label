@@ -1,15 +1,16 @@
 package com.label.po.image;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
-
 @Entity
 @Data
 public class ImageTaskRequirement {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -41,4 +42,5 @@ public class ImageTaskRequirement {
      * 是否审核通过
      */
     private Boolean verifyStatus;
+
 }

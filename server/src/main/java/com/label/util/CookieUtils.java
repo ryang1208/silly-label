@@ -9,7 +9,6 @@ import java.util.Map;
 public class CookieUtils {
 
     public static void set(HttpServletResponse response, String name, String value, int maxAge) {
-
         Cookie cookie = new Cookie(name, value);
         cookie.setPath("/");
         cookie.setMaxAge(maxAge);
@@ -18,7 +17,6 @@ public class CookieUtils {
 
     public static Cookie get(HttpServletRequest request, String name) {
         Map<String, Cookie> cookieMap = readCookieMap(request);
-
         return cookieMap.getOrDefault(name, null);
     }
 

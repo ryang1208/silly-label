@@ -27,4 +27,5 @@ public class LoginStatus {
      * 登录失效时间
      */
     private Date expiredTime;
+
 }

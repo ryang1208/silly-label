@@ -1,7 +1,7 @@
 package com.label.service;
 
 import com.label.bo.LoginUser;
-import java.util.HashMap;
+
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -12,10 +12,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class CacheServiceImpl implements CacheService {
 
-
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    // 存入state和对应的loginUser
+    // 存入 state 和对应的 loginUser
     private static Map<String, LoginUser> userMaps = new WeakHashMap<>();
 
     @Override

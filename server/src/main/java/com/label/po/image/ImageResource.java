@@ -22,4 +22,5 @@ public class ImageResource {
      * 图片链接
      */
     private String url;
+
 }

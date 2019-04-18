@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserInfoVO {
+
     /**
      * 用户名
      */
@@ -16,4 +17,5 @@ public class UserInfoVO {
      * 新密码
      */
     private String newPassword;
+
 }

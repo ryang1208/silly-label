@@ -30,4 +30,5 @@ public class ImageLabelStatus {
      * 当前完成的标签
      */
     private Integer currentLabel;
+
 }

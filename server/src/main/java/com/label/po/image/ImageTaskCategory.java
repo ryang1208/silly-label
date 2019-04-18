@@ -18,4 +18,5 @@ public class ImageTaskCategory {
      * 分类种类名字
      */
     private String categoryName;
+
 }
