@@ -1,7 +1,9 @@
 import loginPageModel from '../router/LoginPage/LoginPageModel'
+import helloPageModel from 'router/HelloPage/HelloPageModel'
 
 const rootStore = {
-  loginPageModel
+  loginPageModel,
+  helloPageModel
 }
 
 const getRootStore = () => {

@@ -1,96 +1,73 @@
 import { observable, action, computed } from 'mobx'
 import { message } from 'antd'
-// import { routerOutline } from '../router'
-// import Api from '../../api'
+import { routerOutline } from 'router/router'
+import BasicModel from 'stores/BasicModel'
 
-export class LoginPageModel {
-  PAGE_STATUS = {
-    LOGIN: Symbol('login'),
-    REGISTER: Symbol('register')
-  }
+import Api from 'api'
 
-  @observable pageStatus = this.PAGE_STATUS.LOGIN
+export const LOGIN_PAGE_STATUS = {
+  LOGIN: Symbol('login'),
+  REGISTER: Symbol('register')
+}
+
+class LoginPageStatus {
+  @observable pageStatus = LOGIN_PAGE_STATUS.LOGIN
   @observable loginUsername = ''
   @observable loginPassword = ''
   @observable registerUsername = ''
   @observable registerPassword = ''
   @observable registerPasswordConfirm = ''
+}
 
-  @action.bound listenLoginUsername(value) {
-    this.loginUsername = value
-  }
-
-  @action.bound listenLoginPassword(value) {
-    this.loginPassword = value
-  }
-
-  @action.bound listenRegisterUsername(value) {
-    this.registerUsername = value
-  }
-
-  @action.bound listenRegisterPassword(value) {
-    this.registerPassword = value
-  }
-
-  @action.bound listenRegisterPasswordConfirm(value) {
-    this.registerPasswordConfirm = value
-  }
+export class LoginPageModel extends BasicModel<LoginPageStatus> {
+  @observable status = new LoginPageStatus()
 
   @computed get isLoginStatus() {
-    return this.pageStatus === this.PAGE_STATUS.LOGIN
+    return this.status.pageStatus === LOGIN_PAGE_STATUS.LOGIN
   }
 
   @computed get isRegisterStatus() {
-    return this.pageStatus === this.PAGE_STATUS.REGISTER
+    return this.status.pageStatus === LOGIN_PAGE_STATUS.REGISTER
   }
 
-  @action.bound
-  switchLogin() {
-    this.pageStatus = this.PAGE_STATUS.LOGIN
-  }
-
-  @action.bound
-  switchRegister() {
-    this.pageStatus = this.PAGE_STATUS.REGISTER
-  }
-
-  @action.bound
+  @action
   async login(history) {
-    if (!this.loginUsername || !this.loginPassword) {
+    if (!this.status.loginUsername || !this.status.loginPassword) {
       message.error('请输入完整用户名或密码')
       return
     }
-    // const loginRes = await Api.userLogin(this.loginUsername, this.loginPassword)
-    // if (loginRes.code === 200) {
-    //   await globalModel.refreshUser()
-    //   history.push(routerOutline.LandingPage)
-    // } else {
-    //   message.error(loginRes.data)
-    // }
+    const loginRes = await Api.user.login(
+      this.status.loginUsername,
+      this.status.loginPassword
+    )
+    if (loginRes.code === 200) {
+      history.push(routerOutline.HelloPage)
+    } else {
+      message.error(loginRes.data)
+    }
   }
 
-  @action.bound
+  @action
   async register(history) {
     if (
-      !this.registerUsername ||
-      !this.registerPassword ||
-      !this.registerPasswordConfirm
+      !this.status.registerUsername ||
+      !this.status.registerPassword ||
+      !this.status.registerPasswordConfirm
     ) {
       message.error('请填写完整注册信息')
       return
     }
 
-    if (this.registerPassword === this.registerPasswordConfirm) {
-      // const registerRes = await Api.userRegister(
-      //   this.registerUsername,
-      //   this.registerPassword
-      // )
-      // if (registerRes.code === 200) {
-      //   await globalModel.refreshUser()
-      //   history.push(routerOutline.LandingPage)
-      // } else {
-      //   message.error(registerRes.data)
-      // }
+    if (this.status.registerPassword === this.status.registerPasswordConfirm) {
+      const registerRes = await Api.user.register(
+        this.status.registerUsername,
+        this.status.registerPassword
+      )
+      if (registerRes.code === 200) {
+        history.push(routerOutline.HelloPage)
+      } else {
+        message.error(registerRes.data)
+      }
     } else {
       message.error('密码不一致，请确认输入')
     }

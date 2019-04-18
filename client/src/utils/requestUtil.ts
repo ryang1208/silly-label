@@ -2,9 +2,12 @@ import axios from 'axios'
 import { message as antdMessage } from 'antd'
 
 const axiosInstance = axios.create({
-  baseURL: '/',
+  // TODO 此处未生效，后续排查下原因
+  baseURL: '/api/label',
   timeout: 2000
 })
+
+const baseURL = '/api/label'
 
 /**
  * get 请求
@@ -12,6 +15,7 @@ const axiosInstance = axios.create({
  * @param params 请求参数
  */
 export function pget(url, params = {}) {
+  url = baseURL + url
   try {
     return axiosInstance
       .get(url, {
@@ -22,7 +26,7 @@ export function pget(url, params = {}) {
       })
       .then(response => {
         const code = response.data.code
-        const message = response.data.msg
+        const message = response.data.data
         if (code > 220 || code < 200) {
           antdMessage.warn(message)
         }
@@ -43,12 +47,13 @@ export function pget(url, params = {}) {
  * @param params 请求参数
  */
 export function ppost(url, params = {}) {
+  url = baseURL + url
   try {
     return axios
       .post(url, params)
       .then(response => {
         const code = response.data.code
-        const message = response.data.msg
+        const message = response.data.data
         if (code > 220 || code < 200) {
           antdMessage.warn(message)
         }

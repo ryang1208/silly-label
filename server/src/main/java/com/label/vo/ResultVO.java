@@ -3,10 +3,11 @@ package com.label.vo;
 import lombok.Data;
 
 @Data
-public class ResultVO<T> {
+public class ResultVO {
 
+    // 详细参见文件 HttpCode
     private Integer code;
 
-    private T data;
+    private Object data;
 
 }
