@@ -20,7 +20,7 @@
   "dependencies": {
     "@loadable/component": "^5.7.0",
     "antd": "^3.16.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
